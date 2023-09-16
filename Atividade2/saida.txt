@@ -1,0 +1,23 @@
+Número de trocas: 30
+Número de comparações: 25
+Vetor ordenado:
+(1) abacate
+(2) abacaxi
+(3) amora
+(4) banana
+(5) caqui
+(6) cereja
+(7) figo
+(8) framboesa
+(9) goiaba
+(10) kiwi
+(11) laranja
+(12) limão
+(13) maca
+(14) manga
+(15) melancia
+(16) morango
+(17) papaya
+(18) pera
+(19) pêssego
+(20) uva
