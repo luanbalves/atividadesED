@@ -51,22 +51,30 @@ void insere(Matriz *matriz, int linha, int coluna, float valor) {
     atual->abaixo = novaCelula;
 }
 
+float buscaValor(Matriz M, int linha, int coluna) {
+    Celula *atual = M.cabeca->direita;
+
+    while (atual != M.cabeca) {
+        if (atual->linha == linha && atual->coluna == coluna) {
+            return atual->valor;
+        }
+        atual = atual->direita;
+    }
+
+    return 0.0;
+}
+
 void imprimeMatriz(Matriz A) {
     for (int i = 0; i < A.nlin; i++) {
         for (int j = 0; j < A.ncol; j++) {
             Celula *atual = A.cabeca->direita;
 
-            while (atual != A.cabeca) {
-                if (atual->linha == i && atual->coluna == j) {
-                    printf("%.2f ", atual->valor);
-                    break;
-                }
-                atual = atual->direita;
-            }
+            printf("%.2f ", buscaValor(A, i, j));
 
             if (atual == A.cabeca) {
                 printf("0.00 ");
             }
+            
         }
         printf("\n");
     }
@@ -86,19 +94,6 @@ Matriz leMatriz(FILE *arquivo) {
     }
 
     return matriz;
-}
-
-float buscaValor(Matriz M, int linha, int coluna) {
-    Celula *atual = M.cabeca->direita;
-
-    while (atual != M.cabeca) {
-        if (atual->linha == linha && atual->coluna == coluna) {
-            return atual->valor;
-        }
-        atual = atual->direita;
-    }
-
-    return 0.0;  // Se não encontrar, retorna 0
 }
 
 Matriz somaMatrizes(Matriz A, Matriz B) {
